@@ -1,0 +1,1 @@
+console.log("One-stop extension loaded")
