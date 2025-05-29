@@ -4,7 +4,7 @@ const QA=require('../models/QA');
 route.post("/",async(req,res)=>{
     // console.log(req.body)
     try{
-        const newQA=await QA.create(req.body);
+        const newQA=await QA.create({...req.body,user:req.user._id});
         res.json(newQA)
     }
     catch(err){

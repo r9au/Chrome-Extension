@@ -4,8 +4,8 @@ const Link=require('../models/Link');
 const { isAuthenticated } = require('../middleware/auth');
 route.post("/",isAuthenticated,async(req,res)=>{
     try{
-        const newLink=await Link.create(req.body);
-        res.json(newLink)
+        const newLink=await Link.create({...req.body, user:req.user._id});
+        res.status(201).json(newLink)
     }
     catch(err){
         res.status(500).json(err);
@@ -14,7 +14,7 @@ route.post("/",isAuthenticated,async(req,res)=>{
 route.get("/", isAuthenticated,async(req,res)=>{
     try{
         const {proid}=req.query;
-        const query={user:req.params._id,project:proid}
+        const query={user:req.user._id,project:proid}
         const link=await Link.find(query).sort({createAt:-1})
         res.json(link)
     }
@@ -25,7 +25,7 @@ route.get("/", isAuthenticated,async(req,res)=>{
 route.put("/:id",async(req,res)=>{
  try {
     const link=await Link.findOne({
-        _id:req.params._id,
+        _id:req.params.id,
         user:req.user._id,
     })
     if(!link){
