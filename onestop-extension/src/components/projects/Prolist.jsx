@@ -14,7 +14,7 @@ const Prolist = () => {
     
   return (
     <Container p={0}>
-      <Flex gap="xs" justify="center" align="center">
+      <Flex gap="xs" justify="center" align="center" my="xl">
         <Title order={6}>My projects</Title>
         <Button variant='outline' size='xs'>Refresh Projects</Button>
         </Flex>

@@ -15,11 +15,11 @@ const useLinkStore= create((set)=>({
         set((state)=>({links:[resp.data,...state.links]}))
     },
     updateLinks:async(id,updatedata)=>{
-        const resp=await axios.put(`${url}/${id}`,updatedata)
+        const resp=await axios.put(`${api}/${id}`,updatedata)
         set((state)=>({links:state.links.map((link)=>link._id===id?resp.data:link)}))
     },
     deleteLinks:async(id)=>{
-        const resp=await axios.delete(`${url}/${id}`)
+        const resp=await axios.delete(`${api}/${id}`)
         set((state)=>({links:state.links.filter((link)=>link._id!==id)}))
     }
 }))

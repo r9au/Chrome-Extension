@@ -18,10 +18,11 @@ const Proinfo = () => {
   return (
     <div>
       <Container p={0}>
-        <Flex align='center' gap="xs" justify="center">
+        <Flex align='center' gap="xs" justify="center" my="xl">
             <Title order={6} mb="md">Project resources</Title>
             <Button size="compact-xs" onClick={()=>navigate("/")}>Back</Button>
         </Flex>
+        <Button size="compact-xs" onClick={()=>navigate("/")}>Insert Link</Button>
         <Divider label="Links" labelPosition='center' my={0}/>
         {links && links.length===0?(
             <Text size='xs' align='center' my={0}>No links yet</Text>
@@ -36,6 +37,7 @@ const Proinfo = () => {
         ):(
             <Loader type='dots'/>
         )}
+        <Button size="compact-xs" onClick={()=>navigate("/")} mt="md">Insert QA</Button>
         <Divider label="Q/A" labelPosition='center' my={0}/>
         {QA && QA.length===0?(
             <Text size='xs' align='center' my={0}>No QA yet</Text>

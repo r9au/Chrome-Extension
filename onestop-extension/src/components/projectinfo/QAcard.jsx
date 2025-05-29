@@ -5,8 +5,8 @@ const QAcard = ({QA}) => {
   return (
     <Card shadow='sm' padding={4} radius="md" withBorder maw={400}>
             <Group justify="space-between">
-            <Title order={6}>{link.title}</Title>
-            <Text size='xs' c="gray">{new Date(link.createdAt).toLocaleDateString()}</Text>
+            <Title order={6}>{QA.title}</Title>
+            <Text size='xs' c="gray">{new Date(QA.createAt).toLocaleDateString()}</Text>
             </Group>
                 {QA.answer && <Text size='xs' c="gray" >{QA.answer}</Text>}
                   {QA.url && (

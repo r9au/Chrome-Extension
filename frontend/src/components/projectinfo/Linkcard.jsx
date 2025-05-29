@@ -6,7 +6,7 @@ const Linkcard = ({link}) => {
     <Card shadow='sm' padding="lg" radius="md" withBorder>
         <Group justify="space-between">
         <Title order={4}>{link.title}</Title>
-        <Text size='xs' c="gray">{new Date(link.createdAt).toLocaleDateString()}</Text>
+        <Text size='xs' c="gray">{new Date(link.createAt).toLocaleDateString()}</Text>
         </Group>
             {link.notes && <Text size='sm' c="gray" >{link.notes}</Text>}
               {link.url && (
